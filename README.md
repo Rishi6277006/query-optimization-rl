@@ -1,6 +1,6 @@
 # **Query Optimization using Reinforcement Learning**  
 
-![GitHub License](https://img.shields.io/github/license/your-username/query-optimization-rl)  
+![GitHub License](https://img.shields.io/github/license/Rishi6277006/query-optimization-rl)  
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)  
 
 This project explores how **Reinforcement Learning (RL)** can optimize SQL query execution plans in **PostgreSQL** databases. By dynamically tuning query planner parameters—such as join methods, index usage, and memory allocation—the RL agent aims to **reduce query execution costs** and improve performance.  
@@ -78,7 +78,10 @@ Modify `src/test_environment.py` to evaluate the agent on different workloads.
 ### **Training Progress**  
 The RL agent learns to reduce query execution costs over multiple episodes:  
 
-📈 *Graph showing training progress here*  
+📈 
+
+<img width="642" alt="Screenshot 2025-03-08 at 10 57 51 AM" src="https://github.com/user-attachments/assets/a589769a-5596-4002-8a89-752cc7669280" />
+
 
 ### **Performance Metrics**  
 - **Best Reward Achieved:** `236.54`  
