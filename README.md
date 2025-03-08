@@ -1,122 +1,119 @@
-# Query Optimization using Reinforcement Learning
+# **Query Optimization using Reinforcement Learning**  
 
-![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
+![GitHub License](https://img.shields.io/github/license/your-username/query-optimization-rl)  
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)  
 
-This project demonstrates how **Reinforcement Learning (RL)** can be used to optimize SQL query execution plans in a database environment. The goal is to reduce query execution costs by dynamically adjusting query planner parameters such as join methods, index usage, and memory allocation.
+This project explores how **Reinforcement Learning (RL)** can optimize SQL query execution plans in **PostgreSQL** databases. By dynamically tuning query planner parameters—such as join methods, index usage, and memory allocation—the RL agent aims to **reduce query execution costs** and improve performance.  
 
----
+## **Table of Contents**  
+- [Overview](#overview)  
+- [Features](#features)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Results](#results)  
+- [Future Work](#future-work)  
+- [Contributing](#contributing)  
+- [License](#license)  
+- [Acknowledgments](#acknowledgments)  
+- [Contact](#contact)  
 
-## **Table of Contents**
-1. [Overview](#overview)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Results](#results)
-6. [Future Work](#future-work)
-7. [Contributing](#contributing)
-8. [License](#license)
-9. [Acknowledgments](#acknowledgments)
+## **Overview**  
 
----
+Query optimization is a fundamental challenge in database systems, as inefficient execution plans can lead to **poor performance**. Traditional query optimizers rely on **static cost models**, which may not always produce the best execution strategies.  
 
-## **Overview**
-Query optimization is a critical aspect of database systems, as it directly impacts performance. Traditional query optimizers rely on static rules and cost models, which may not always produce the most efficient execution plans. This project explores the use of **Reinforcement Learning (RL)** to dynamically optimize query execution plans based on real-time feedback.
+This project leverages **Reinforcement Learning (RL)** to dynamically optimize SQL queries based on real-time feedback. The RL agent interacts with **PostgreSQL** and learns to adjust query planner parameters (e.g., `enable_hashjoin`, `enable_indexscan`, `work_mem`) to **minimize execution costs**.  
 
-The RL agent interacts with a PostgreSQL database and learns to adjust query planner parameters (e.g., enabling/disabling hash joins, index scans, etc.) to minimize query execution costs. The project uses the **TPC-H benchmark dataset** for training and evaluation.
+We use the **TPC-H benchmark dataset** for training and evaluation.  
 
----
+## **Features**  
 
-## **Features**
-- **Reinforcement Learning Environment**: A custom Gym environment for query optimization.
-- **Q-Learning Agent**: Implements a Q-learning algorithm to optimize query execution plans.
-- **PostgreSQL Integration**: Connects to a PostgreSQL database to execute and analyze queries.
-- **Dynamic Query Tuning**: Adjusts query planner parameters (e.g., `enable_hashjoin`, `enable_indexscan`, `work_mem`) to reduce execution costs.
-- **Training and Evaluation**: Includes scripts for training the RL agent and evaluating its performance on test queries.
+✅ **Custom Reinforcement Learning Environment** – Built using OpenAI Gym for query optimization.  
+✅ **Q-Learning Agent** – Implements a Q-learning algorithm to optimize query execution plans.  
+✅ **PostgreSQL Integration** – Connects to a PostgreSQL database to execute and analyze queries.  
+✅ **Dynamic Query Tuning** – Adjusts planner parameters in real-time to optimize performance.  
+✅ **Training & Evaluation Scripts** – Includes scripts to train the RL agent and evaluate performance.  
 
----
+## **Installation**  
 
-## **Installation**
-To set up the project locally, follow these steps:
+Follow these steps to set up the project:  
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/query-optimization-rl.git
-   cd query-optimization-rl
-Set up a PostgreSQL database:
-Install PostgreSQL and create a database (e.g., tpch_db).
-Load the TPC-H dataset using the provided script (load_tcp_h.py).
-Install dependencies:
-bash
-Copy
+### **1. Clone the repository**  
+```bash
+git clone https://github.com/your-username/query-optimization-rl.git
+cd query-optimization-rl
+```  
+
+### **2. Set up PostgreSQL & Load the Dataset**  
+- Install **PostgreSQL** and create a database (e.g., `tpch_db`).  
+- Load the **TPC-H dataset** using the provided script:  
+  ```bash
+  python scripts/load_tpch.py
+  ```  
+
+### **3. Install dependencies**  
+```bash
 pip install -r requirements.txt
-Run the training script:
-bash
-Copy
+```  
+
+## **Usage**  
+
+### **Training the RL Agent**  
+Run the following command to train the RL agent:  
+```bash
 python src/train_rl_agent.py
-Usage
+```  
+The agent will interact with PostgreSQL, adjust query planner settings, and save the trained **Q-table**.  
 
-1. Training the RL Agent
-
-To train the RL agent, run the following command:
-
-bash
-Copy
-python src/train_rl_agent.py
-The agent will interact with the PostgreSQL database, optimize query execution plans, and save the trained Q-table.
-
-2. Evaluating the Agent
-
-To evaluate the trained agent on test queries, use the following script:
-
-bash
-Copy
+### **Evaluating the Trained Agent**  
+To test the agent on new queries, run:  
+```bash
 python src/test_environment.py
-3. Custom Queries
+```  
 
-You can modify the test queries in src/test_environment.py to evaluate the agent on different workloads.
+### **Custom Queries**  
+Modify `src/test_environment.py` to evaluate the agent on different workloads.  
 
-Results
+## **Results**  
 
-Training Progress
+### **Training Progress**  
+The RL agent learns to reduce query execution costs over multiple episodes:  
 
-The following graph shows the training progress of the RL agent over multiple episodes. The agent learns to reduce query execution costs by adjusting query planner parameters.
+📈 *Graph showing training progress here*  
 
-<img width="642" alt="Screenshot 2025-03-08 at 10 57 51 AM" src="https://github.com/user-attachments/assets/ba7fb53e-bf51-4688-8e1d-aaf41900a330" />
+### **Performance Metrics**  
+- **Best Reward Achieved:** `236.54`  
+- **Average Cost Reduction:** `15%`  
 
-Performance Metrics
+## **Future Work**  
 
-Best Reward Achieved: 236.54
-Average Cost Reduction: 15%
-Future Work
+🚀 **Deep Reinforcement Learning** – Replace Q-learning with **DQN** or **Policy Gradient** methods.  
+📊 **State Space Refinement** – Incorporate more features (e.g., query complexity, database stats).  
+🔄 **Multi-Query Optimization** – Extend optimization to handle **multiple queries simultaneously**.  
+🏢 **Real-World Databases** – Test the RL agent on production workloads.  
 
-Deep Reinforcement Learning: Replace Q-learning with Deep Q-Networks (DQN) or Policy Gradient methods for better performance.
-State Space Refinement: Experiment with additional state features (e.g., query complexity, database statistics).
-Multi-Query Optimization: Extend the agent to optimize multiple queries simultaneously.
-Integration with Real Databases: Test the agent on real-world database workloads.
-Contributing
+## **Contributing**  
 
-Contributions are welcome! If you'd like to contribute, please follow these steps:
+We welcome contributions! To contribute:  
 
-Fork the repository.
-Create a new branch (git checkout -b feature/YourFeature).
-Commit your changes (git commit -m 'Add some feature').
-Push to the branch (git push origin feature/YourFeature).
-Open a pull request.
-License
+1. **Fork** the repository.  
+2. Create a **new branch** (`git checkout -b feature/YourFeature`).  
+3. **Commit** your changes (`git commit -m 'Add new feature'`).  
+4. **Push** to your branch (`git push origin feature/YourFeature`).  
+5. Open a **Pull Request**.  
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+## **License**  
 
-Acknowledgments
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.  
 
-OpenAI Gym for the RL environment framework.
-TPC-H Benchmark for the dataset.
-PostgreSQL for the database backend.
-Contact
+## **Acknowledgments**  
 
-For questions or feedback, feel free to reach out:
+🙏 **Special thanks to:**  
+- **OpenAI Gym** – RL environment framework.  
+- **TPC-H Benchmark** – Dataset provider.  
+- **PostgreSQL** – Database backend.  
 
-Name: Rishikesh Thakker
-Email: thakker834@gmail.com
-LinkedIn: www.linkedin.com/in/rishikesh-thakker-318078275
+## **Contact**  
 
+📌 **Name:** Rishikesh Thakker  
+📧 **Email:** [thakker834@gmail.com](mailto:thakker834@gmail.com)  
+🔗 **LinkedIn:** [linkedin.com/in/rishikesh-thakker](https://www.linkedin.com/in/rishikesh-thakker)  
