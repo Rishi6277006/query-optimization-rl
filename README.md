@@ -119,4 +119,4 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 📌 **Name:** Rishikesh Thakker  
 📧 **Email:** [thakker834@gmail.com](mailto:thakker834@gmail.com)  
-🔗 **LinkedIn:** [linkedin.com/in/rishikesh-thakker](https://www.linkedin.com/in/rishikesh-thakker)  
+🔗 **LinkedIn:** [linkedin.com/in/rishikesh-thakker](www.linkedin.com/in/rishikesh-thakker-318078275)  
